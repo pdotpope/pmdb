@@ -67,22 +67,24 @@ def diff_color(diff):
     else: return "gray"
     
 # Get secrets
-ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
-USER = os.getenv('SNOWFLAKE_USER')
-PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
+# ACCOUNT = os.getenv('SNOWFLAKE_ACCOUNT')
+# USER = os.getenv('SNOWFLAKE_USER')
+# PASSWORD = os.getenv('SNOWFLAKE_PASSWORD')
 
-@st.cache_resource
-def get_engine():
-    return create_engine(
-        f'snowflake://{USER}:{PASSWORD}@{ACCOUNT}/P_MOVIE_DB/DBT_GOLD?warehouse=COMPUTE_WH'
-    )
+# @st.cache_resource
+# def get_engine():
+#     return create_engine(
+#         f'snowflake://{USER}:{PASSWORD}@{ACCOUNT}/P_MOVIE_DB/DBT_GOLD?warehouse=COMPUTE_WH'
+#     )
 
-@st.cache_data(ttl=3600)
-def load_data_snowflake():
-    engine = get_engine()
-    return pd.read_sql("SELECT * FROM P_MOVIE_DB.DBT_GOLD.JOINED_MOVIE_RATINGS", engine)
+# @st.cache_data(ttl=3600)
+# def load_data_snowflake():
+#     engine = get_engine()
+#     return pd.read_sql("SELECT * FROM P_MOVIE_DB.DBT_GOLD.JOINED_MOVIE_RATINGS", engine)
 
-df = load_data_snowflake()
+# df = load_data_snowflake()
+
+df = pd.read_csv("raw_data/PMDB_2026-05-18-2052.csv")
 df.columns = df.columns.str.upper()
     
 
