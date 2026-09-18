@@ -1,8 +1,10 @@
 .env
 logs
-raw_data
+raw_data/*
+!raw_data/PMDB_2026-05-18-2052.csv
 __pycache__/
 *.pyc
 .DS_Store
 target/
 dbt_packages/
+.venv/

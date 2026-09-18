@@ -357,4 +357,4 @@ with film_tab:
 
 
 st.divider()
-st.caption("*Click [here](https://peytonjpope.com/projects/pmdb/) for more info*")
+st.caption("*Click [here](https://pdot.dev/projects/pmdb/) for more info*")
